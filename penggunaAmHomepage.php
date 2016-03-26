@@ -2,6 +2,7 @@
  session_start();
  require_once('database/mysql_connect.php');
 $sesusername = $_SESSION['SESS_USERNAME'];
+$sespgwid = $_SESSION['SESS_USERID'];
 ?>
 
     <html>
@@ -41,15 +42,6 @@ $sesusername = $_SESSION['SESS_USERNAME'];
                             <a href="#">Home</a>
                         </li>
                         <li>
-                            <a href="adminSenaraiPegawai.php">Senarai Pegawai</a>
-                        </li>
-                        <li>
-                            <a href="adminStatusKeberadaan.php">Status Keberadaan</a>
-                        </li>
-                        <li>
-                            <a href="adminUnit.php">Bahagian/Unit</a>
-                        </li>
-                        <li>
                             <a href="Logout.php">Log out</a>
                         </li>
                     </ul>
@@ -78,28 +70,28 @@ $sesusername = $_SESSION['SESS_USERNAME'];
                             <div class="form-group has-feedback">
                                 <label class="control-label">Nama Pengguna</label>
                                 <?php
-                  $myQuery = "select PGW_NM as NM, PGW_NM, PGW_NRIC as IC, PGW_NRIC, UNIT from omspegawai order by PGW_ID";
+                  $myQuery = "select PGW_NM as NM, PGW_NM, PGW_NRIC as IC, PGW_NRIC, UNIT from omspegawai where PGW_ID='$sespgwid'";
                   $rs = mysql_query($myQuery) or die ("Dude you've got this wrong: " . mysql_error());
                   ?>
-                                    <select class="form-control" name="pgw_nm" id="pgw_nm">
                                         <?php
-                            echo "<option>Select Staff</option>";
                         while ($row = mysql_fetch_array($rs))
                         {
-                            echo "<option data-nric=" . $row['PGW_NRIC'] . " data-unit=" . $row['UNIT'] . " value='" . $row['NM'] . "'>" . $row['NM'] . "</option>";
-                        }
+                            echo "<input class='form-control' type='text' name='pgw_nm' id='pgw_nm' value='". $row['NM'] ."'>";
+
                       ?>
-                                    </select>
                                     <span class="fa form-control-feedback fa-edit"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">No. Kad Pengenalan</label>
-                                <input class="form-control" placeholder="No. Kad Pengenalan" type="text" name="pgw_nric" id="pgw_nric" value="<?php if (isset ($_POST ['pgw_nric'])) echo $_POST ['pgw_nric']; ?>">
+                                <input class="form-control" placeholder="No. Kad Pengenalan" type="text" name="pgw_nric" id="pgw_nric" value="<?php echo $row['IC']  ?>">
                                 <p class="help-block text-right">No. Kad Pengenalan (contoh: 751208085857)</p>
                             </div>
                             <div class="form-group has-feedback">
                                 <label class="control-label">Bahagian/Unit</label>
-                                <input class="form-control" placeholder="Bahagian/Unit" type="text" name="pgw_unit" id="pgw_unit" value="<?php if (isset ($_POST ['pgw_unit'])) echo $_POST ['pgw_unit']; ?>">
+                                <input class="form-control" placeholder="Bahagian/Unit" type="text" name="pgw_unit" id="pgw_unit" value="<?php echo $row['UNIT'] ?>">
+                                <?php
+                                }
+                                ?>
                                 <span class="fa form-control-feedback fa-edit"></span>
                             </div>
                             <div class="form-group has-feedback">
@@ -159,22 +151,6 @@ $sesusername = $_SESSION['SESS_USERNAME'];
                                 </div>
                             </div>
                         </form>
-                    </div>
-                    <div class="col-md-4 text-right">
-                        <br>
-                        <a href="adminReportDaily.php">
-                            <button class="active btn btn-default" style="width:250px; height:50px">LAPORAN HARIAN</button>
-                        </a>
-                        <br>
-                        <br>
-                        <a href="adminReportWeekly.html">
-                            <button class="active btn btn-default" style="width:250px; height:50px">LAPORAN BULANAN</button>
-                        </a>
-                        <br>
-                        <br>
-                        <a href="adminReportWeekly.html">
-                            <button class="active btn btn-default" style="width:250px; height:50px">LAPORAN TAHUNAN</button>
-                        </a>
                     </div>
                 </div>
             </div>

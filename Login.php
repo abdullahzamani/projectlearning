@@ -103,7 +103,7 @@
    $_SESSION['SESS_USERNAME'] = $loginrow['PGW_NM'];
    $_SESSION['SESS_USERID'] = $loginrow['PGW_ID'];
 
-    header("location: penggunaAmHomepage.html");
+    header("location: penggunaAmHomepage.php");
   }
 
   else {
