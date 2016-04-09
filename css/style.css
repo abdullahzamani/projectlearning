@@ -1091,7 +1091,7 @@ body {
   line-height: 1.42857143;
   color: #000000;
   background-color: #ffffff;
-  background-image: url('../images/bg2.png');
+  background-image: none;
     background-size: 2000px 1020px;
   background-repeat: no-repeat;
 }
@@ -6779,3 +6779,8 @@ body {
   background-attachment: fixed;
 }
 /* PINGENDO COMMENT DO NOT REMOVE */
+
+@media print {
+  /* style sheet for print goes here */
+  .hide-from-printer{  display:none; }
+}

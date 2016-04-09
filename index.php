@@ -1,52 +1,75 @@
+<!--
+    Programmer : AbdullahZamani
+    Company    : Freelancer
+    System     : OMS SYSTEM
+    File       : pentadbirLogin.html
+    Version    : 1.0 - 19 March 2016
+-->
+
 <html><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="css\style.css" rel="stylesheet" type="text/css">
-    <link href="style.css" rel="stylesheet" type="text/css">
-    <link href="style.less" rel="stylesheet" type="text/css">
+    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
   </head><body>
-    <div class="cover">
-      <div class="cover-image" style=""></div>
+    <div class="section">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 text-center">
-            <div class="row">
-              <div class="col-md-4">
-                <img src="images\jpbd.png" class="img-responsive" width="150px" align="right">
-              </div>
-              <div class="col-md-6 text-left">
-                <h1 class="text-left">
-                  <small>
-                    <small>
-                      <small>OFFICER MOVEMENT MANAGEMENT SYSTEM</small>
-                    </small>
-                  </small>
-                  <br>OM SYSTEM</h1>
-              </div>
+          <div class="col-md-8">
+            <h1 contenteditable="true">OFFICER MOVEMENT MANAGEMENT SYSTEM
+              <small class="text-success">&nbsp;
+                <br>
+                <br>OMMS</small>
+            </h1>
+          </div>
+          <div class="col-md-4">
+            <img src="images\jpbd.png" class="img-responsive" width="150px">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="page-header">
+              <h1>
+                <span style="color: rgb(119, 119, 119); font-size: 23.4px; line-height: 1;">LOGIN</span>
+              </h1>
             </div>
-            <div class="container text-left">
-              <h3>
-                <b>
-                  <i>Log in</i>
-                </b>
-              </h3>
-              <div class="row">
-                <div class="col-md-2">
-                  <a href="pentadbirLogin.php"><button class="btn btn-block btn-primary">PENTADBIR</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-offset-3">
+            <form class="form-horizontal" action="Login.php" method="post" role="form">
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <label for="inputEmail3" class="control-label">User ID</label>
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" name="userid" placeholder="User ID" value="<?php if (isset ($_POST ['userid'])) echo $_POST ['userid']; ?>">
                 </div>
               </div>
-              <br>
-              <div class="row">
-                <div class="col-md-2">
-                  <a href="penggunaAmLogin.php"><button class="btn btn-block btn-primary">PENGGUNA AM</button></a>
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <label for="inputPassword3" class="control-label">Password</label>
+                </div>
+                <div class="col-sm-6">
+                  <input type="password" class="form-control" placeholder="Password" name="password" value="<?php if (isset ($_POST ['password'])) echo $_POST ['password']; ?>">
                 </div>
               </div>
-            </div>
-            <br>
-            <br>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default">Log in</button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>

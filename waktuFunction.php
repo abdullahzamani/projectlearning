@@ -65,7 +65,7 @@
 
    if (mysql_num_rows($result) > 0) {
     //Make the query.
-       $query = "UPDATE OMSLAPORAN SET PGW_WKT_MASUK='$pgwwktmasuk', STA_ID='Y', UPD_TMS=NOW(), UPD_UID='$sessid', URSN_DESC='', RPT_DESC='' WHERE PGW_NRIC='$nric' and PGW_NM='$nm'";
+       $query = "UPDATE OMSLAPORAN SET PGW_WKT_MASUK='$pgwwktmasuk', STA_ID='Y', UPD_TMS=NOW(), UPD_UID='$sessid' WHERE PGW_NRIC='$nric' and PGW_NM='$nm'";
 
     $result = @mysql_query ($query); //Run the query.
     // Initializing Session
