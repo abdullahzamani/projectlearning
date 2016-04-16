@@ -16,7 +16,7 @@
    <div class="container">
     <div class="row">
      <div class="col-md-offset-3 col-md-6 text-center">
-      <h4 class="title"><span class="text"><strong>Update </strong>Category</span></h4>
+      <h4 class="title"><span class="text"><strong>Kemaskini </strong>Unit</span></h4>
        <hr>
       <form action="adminUpdateUnit.php?unitid=<?php echo  $unitid ?>" method="post" class="form-inline">
        <?php
@@ -34,7 +34,7 @@
         </tr>
         <tr>
          <td></td>
-         <td class="text-left"><font color="#FF0000"><small>* </small></font><b>Unit Description</b></td>
+         <td class="text-left"><font color="#FF0000"><small>* </small></font><b>Huraian Unit</b></td>
          <td class="text-left"><input type="text" name="unitdesc" class="form-control" style="width: 90%;" value="<?php echo '' .$row['UNIT_DESC']. ''; ?>"></td>
         </tr>
        </table>
@@ -53,8 +53,10 @@
           $query = "UPDATE OMSUNIT SET UNIT_DESC='$unitdesc' WHERE UNIT_ID='$unitid'";
           $result = mysql_query($query);
           if ($result){
-            echo "<script>alert('Update unit is successful!');</script>";
-            echo '<META HTTP-EQUIV="Refresh" Content="0; URL="adminUpdateUnit.php"">';
+            echo "<script>";
+            echo " alert('Berjaya Kemaskini Unit!');
+                   window.location.href='adminUnit.php';
+                 </script>";
           } else {
             echo "<script>alert('Fail to update unit!$category $unitid $result');</script>";
             echo '<META HTTP-EQUIV="Refresh" Content="0; URL="adminUpdateUnit.php"">';

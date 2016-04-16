@@ -28,7 +28,7 @@ require("includes/header.php");
                 echo '<table class="table table-bordered">
                     <tr><thead>
                     <th class="col-md-1">No.</th>
-                    <th class="col-md-2">Unit</th>
+                    <th class="col-md-2">Bahagian/Unit</th>
                     <th>Huraian</th>
                     <th class="col-md-1">Edit</th>
                     <th class="col-md-1">Delete</th></thead>
@@ -51,10 +51,10 @@ require("includes/header.php");
                      <div class="modal-content">
                       <div class="modal-header">
                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                       <h4 class="modal-title">Delete Category Parmanently</h4>
+                       <h4 class="modal-title">Buang Bahagian/Unit</h4>
                       </div>
                       <div class="modal-body">
-                       <p>Are you sure about this ?</p>
+                       <p>Buang Bahagian/Unit: <font color="#FF0000">' . $row['UNIT_DESC'] . '</font> ?</p>
                       </div>
                       <div class="modal-footer">
                        <a href="adminDelete.php?unitid=' . $row['UNIT_ID'] . '"><button type="button" class="btn btn-danger" id="confirm">Delete</button></a>

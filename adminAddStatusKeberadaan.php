@@ -58,7 +58,7 @@
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                   <input type="submit" class="btn btn-primary" name="submit" value="Add">
-                  <a href="adminUnit.php">
+                  <a href="adminStatusKeberadaan.php">
                     <button type="button" class="btn btn-danger">Cancel</button>
                   </a>
                 </div>

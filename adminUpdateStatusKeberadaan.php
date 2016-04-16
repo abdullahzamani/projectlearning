@@ -29,12 +29,12 @@
        <table class="table borderless">
         <tr>
          <td class="span3"></td>
-         <td class="text-left"><font color="white"><small>* </small></font><b>Urusan ID</b></td>
+         <td class="text-left"><font color="white"><small>* </small></font><b>Status Keberadaan ID</b></td>
          <td class="text-left"><?php echo '' .$row['URSN_ID']. ''; ?></td>
         </tr>
         <tr>
          <td></td>
-         <td class="text-left"><font color="#FF0000"><small>* </small></font><b>Urusan Description</b></td>
+         <td class="text-left"><font color="#FF0000"><small>* </small></font><b>Huraian Status Keberadaan</b></td>
          <td class="text-left"><input type="text" name="ursndesc" class="form-control" style="width: 90%;" value="<?php echo '' .$row['URSN_DESC']. ''; ?>"></td>
         </tr>
        </table>
@@ -53,10 +53,12 @@
           $query = "UPDATE OMSURUSAN SET URSN_DESC='$ursndesc' WHERE URSN_ID='$statusid'";
           $result = mysql_query($query);
           if ($result){
-            echo "<script>alert('Berjaya Kemaskini Status Keberadaan!');</script>";
-            echo '<META HTTP-EQUIV="Refresh" Content="0; URL="adminStatusKeberadaan.php"">';
+            echo "<script>";
+            echo " alert('Berjaya Kemaskini Status Keberadaan!');
+                   window.location.href='adminStatusKeberadaan.php';
+                 </script>";
           } else {
-            echo "<script>alert('Fail to update unit!$category $unitid $result');</script>";
+            echo "<script>alert('Gagal Kemaskini Status Keberadaan! $statusid $ursndesc $result');</script>";
             echo '<META HTTP-EQUIV="Refresh" Content="0; URL="adminUpdateStatusKeberadaan.php"">';
           }
         }

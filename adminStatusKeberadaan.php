@@ -50,10 +50,10 @@ require("includes/header.php");
                      <div class="modal-content">
                       <div class="modal-header">
                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                       <h4 class="modal-title">Delete Category Parmanently</h4>
+                       <h4 class="modal-title">Buang Status Keberadaan</h4>
                       </div>
                       <div class="modal-body">
-                       <p>Are you sure about this ?</p>
+                       <p>Buang Status Keberadaan: <font color="#FF0000">' . $row['URSN_DESC'] . '</font> ?</p>
                       </div>
                       <div class="modal-footer">
                        <a href="adminDelete.php?statusid=' . $row['URSN_ID'] . '"><button type="button" class="btn btn-danger" id="confirm">Delete</button></a>
