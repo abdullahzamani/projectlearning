@@ -28,11 +28,6 @@
        ?>
        <table class="table borderless">
         <tr>
-         <td class="span3"></td>
-         <td class="text-left"><font color="white"><small>* </small></font><b>Status Keberadaan ID</b></td>
-         <td class="text-left"><?php echo '' .$row['URSN_ID']. ''; ?></td>
-        </tr>
-        <tr>
          <td></td>
          <td class="text-left"><font color="#FF0000"><small>* </small></font><b>Huraian Status Keberadaan</b></td>
          <td class="text-left"><input type="text" name="ursndesc" class="form-control" style="width: 90%;" value="<?php echo '' .$row['URSN_DESC']. ''; ?>"></td>

@@ -12,7 +12,7 @@
     <div class="row">
      <div class="span12">
       <h4 class="title text-center">
-       <span><span class="line">Add<strong> Unit</strong></span></span>
+       <span><span class="line">Tambah<strong> Bahagian/Unit</strong></span></span>
       </h4>
 
       <?php
@@ -40,16 +40,16 @@
           <div class="col-md-offset-3">
             <form class="form-horizontal" action="adminAddUnit.php" method="post" role="form">
               <div class="form-group">
-                <div class="col-sm-2">
-                  <font color="#FF0000"><small>* </small></font><label for="inputEmail3" class="control-label">Unit ID</label>
+                <div class="col-sm-3">
+                  <font color="#FF0000"><small>* </small></font><label for="inputEmail3" class="control-label">Bahagian/Unit ID</label>
                 </div>
                 <div class="col-sm-6">
                   <input type="text" class="form-control" name="unitid" placeholder="Unit ID" value="<?php if (isset ($_POST ['unitid'])) echo $_POST ['unitid']; ?>">
                 </div>
               </div>
               <div class="form-group">
-                <div class="col-sm-2">
-                  <font color="#FF0000"><small>* </small></font><label for="inputPassword3" class="control-label">Unit Description</label>
+                <div class="col-sm-3">
+                  <font color="#FF0000"><small>* </small></font><label for="inputPassword3" class="control-label">Huraian Bahagian/Unit</label>
                 </div>
                 <div class="col-sm-6">
                   <input type="text" class="form-control" placeholder="Unit Description" name="unitdesc" value="<?php if (isset ($_POST ['unitdesc'])) echo $_POST ['unitdesc']; ?>">
