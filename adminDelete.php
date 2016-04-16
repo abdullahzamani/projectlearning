@@ -9,12 +9,19 @@
 <?php
 include('database/config.php');
 
-if(isset($_GET['id']))
+if(isset($_GET['unitid']))
 {
-  $unitid = $_GET['id'];
+  $unitid = $_GET['unitid'];
   $query1 = mysql_query("DELETE FROM OMSUNIT WHERE UNIT_ID='$unitid'");
   if($query1) {
     header('location:adminUnit.php');
+  }
+} else if(isset($_GET['statusid']))
+{
+  $statusid = $_GET['statusid'];
+  $queryursn = mysql_query("DELETE FROM OMSURUSAN WHERE URSN_ID='$statusid'");
+  if($queryursn) {
+    header('location:adminStatusKeberadaan.php');
   }
 }
 ?>

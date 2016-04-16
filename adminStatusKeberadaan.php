@@ -14,7 +14,7 @@ require("includes/header.php");
     <div class="container">
         <div class="row">
 
-            <a href="#" class="btn btn-primary">Tambah Status Keberadaan</a>
+            <a href="adminAddStatusKeberadaan.php" class="btn btn-primary">Tambah Status Keberadaan</a>
 
             <br><br>
 
@@ -38,7 +38,7 @@ require("includes/header.php");
                     echo '<tr>
                         <td>' . $counter . '</td>
                         <td>' . $row['URSN_DESC'] . '</td>
-                   <td><a href="adminUpdateUnit.php?unitid=' . $row['URSN_ID'] . '" class="btn btn-default btn-block">Edit</a></td>
+                   <td><a href="adminUpdateStatusKeberadaan.php?statusid=' . $row['URSN_ID'] . '" class="btn btn-default btn-block">Edit</a></td>
                    <td><button class="btn btn-danger btn-block"
                                type="button"
                                data-toggle="modal"
@@ -56,7 +56,7 @@ require("includes/header.php");
                        <p>Are you sure about this ?</p>
                       </div>
                       <div class="modal-footer">
-                       <a href="adminDeleteUnit.php?id=' . $row['URSN_ID'] . '"><button type="button" class="btn btn-danger" id="confirm">Delete</button></a>
+                       <a href="adminDelete.php?statusid=' . $row['URSN_ID'] . '"><button type="button" class="btn btn-danger" id="confirm">Delete</button></a>
                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                       </div>
                      </div>

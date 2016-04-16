@@ -57,7 +57,7 @@ require("includes/header.php");
                        <p>Are you sure about this ?</p>
                       </div>
                       <div class="modal-footer">
-                       <a href="adminDeleteUnit.php?id=' . $row['UNIT_ID'] . '"><button type="button" class="btn btn-danger" id="confirm">Delete</button></a>
+                       <a href="adminDelete.php?unitid=' . $row['UNIT_ID'] . '"><button type="button" class="btn btn-danger" id="confirm">Delete</button></a>
                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                       </div>
                      </div>
