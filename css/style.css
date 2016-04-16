@@ -6784,3 +6784,6 @@ body {
   /* style sheet for print goes here */
   .hide-from-printer{  display:none; }
 }
+
+.borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th
+{ border: none; }

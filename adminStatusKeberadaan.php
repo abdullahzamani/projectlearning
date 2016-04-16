@@ -14,10 +14,11 @@ require("includes/header.php");
     <div class="container">
         <div class="row">
 
+            <a href="#" class="btn btn-primary">Tambah Status Keberadaan</a>
+
+            <br><br>
+
             <?php
-
-
-            //Make the query.
             $query = "SELECT * FROM OMSURUSAN ORDER BY URSN_ID";
             $result = mysql_query ($query); //Run the query
             $num = mysql_num_rows($result);
@@ -26,16 +27,41 @@ require("includes/header.php");
             if ($num > 0) { // If it ran OK, display the records.
                 // Table header.
                 echo '<table class="table table-bordered">
-                    <tr>
-                    <th>No.</th>
+                    <tr><thead>
+                    <th class="col-md-1">No.</th>
                     <th>Status Keberadaan</th>
+                    <th class="col-md-1">Edit</th>
+                    <th class="col-md-1">Delete</th></thead>
                 </tr>' ;
                 //Fetch and print all the records.
                 while ($row = mysql_fetch_array ($result, MYSQL_ASSOC) ) {
                     echo '<tr>
                         <td>' . $counter . '</td>
                         <td>' . $row['URSN_DESC'] . '</td>
+                   <td><a href="adminUpdateUnit.php?unitid=' . $row['URSN_ID'] . '" class="btn btn-default btn-block">Edit</a></td>
+                   <td><button class="btn btn-danger btn-block"
+                               type="button"
+                               data-toggle="modal"
+                               data-target="#confirmDelete' . $row['URSN_ID'] . '">Delete</button></td>
                       </tr>' ;
+            echo '<!-- Modal Dialog -->
+                   <div class="modal fade" id="confirmDelete' . $row['URSN_ID'] . '" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                     <div class="modal-content">
+                      <div class="modal-header">
+                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                       <h4 class="modal-title">Delete Category Parmanently</h4>
+                      </div>
+                      <div class="modal-body">
+                       <p>Are you sure about this ?</p>
+                      </div>
+                      <div class="modal-footer">
+                       <a href="adminDeleteUnit.php?id=' . $row['URSN_ID'] . '"><button type="button" class="btn btn-danger" id="confirm">Delete</button></a>
+                       <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      </div>
+                     </div>
+                    </div>
+                   </div>';
                     $counter++;
                 }
                 echo '</table>';
