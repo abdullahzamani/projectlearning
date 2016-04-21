@@ -1,12 +1,13 @@
 <?php
 require("includes/header.php");
+header( "refresh:5;url=adminPaparan.php" );
 ?>
 <div class="section">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h1 class="text-success">SISTEM PERGERAKAN DAN KEBERADAAN PEGAWAI DI PEJABAT</h1>
-                <h2>LAPORAN BULANAN</h2>
+                <h2>LAPORAN HARIAN</h2>
             </div>
         </div>
     </div>
@@ -16,9 +17,9 @@ require("includes/header.php");
         <div class="row">
             <button onclick="myFunction()" class="btn hide-from-printer">Print</button>
             <label class="hide-from-printer">|</label>
-            <a href="adminReportMonthly.php" class="hide-from-printer"><button class="btn btn-success hide-from-printer">Papar Semua Unit</button></a>
+            <a href="adminReportDaily.php" class="hide-from-printer"><button class="btn btn-success hide-from-printer">Papar Semua Unit</button></a>
             <label class="hide-from-printer">|</label>
-            <?php include("includes/mthReportUnitList.php"); ?>
+            <?php include("includes/reportUnitList.php"); ?>
             <br>
             <br>
 
@@ -34,7 +35,7 @@ require("includes/header.php");
                 $row1 = mysql_fetch_array ($result1, MYSQL_ASSOC);
                 echo '<h2>' . $row1['UNIT_ID'] . ' : ' . $row1['UNIT_DESC'] . '</h2>';
 
-                $query = "SELECT *, DATE_FORMAT(UPD_TMS, '%d-%m-%Y') as UPD_TMS FROM OMSLAPORAN WHERE UNIT_ID='$unit' AND SUBSTRING(CRT_TMS,6,2) = SUBSTRING(NOW(),6,2) ORDER BY CRT_TMS";
+                $query = "SELECT * FROM OMSLAPORAN where SUBSTRING(CRT_TMS,9,2) = SUBSTRING(NOW(),9,2) and UNIT_ID='$unit' ORDER BY CRT_TMS";
                 $result = mysql_query ($query); //Run the query
                 $num = mysql_num_rows($result);
                 $counter = 1;
@@ -47,9 +48,9 @@ require("includes/header.php");
                     <th>No.</th>
                     <th>Nama Pegawai</th>
                     <th>Status</th>
-                    <th>Tarikh</th>
                     <th>Masa Keluar</th>
                     <th>Masa Masuk</th>
+                    <th>Pergerakan</th>
                     <th>Catatan Pergerakan</th>
                 </tr></thead>' ;
                     //Fetch and print all the records.
@@ -58,10 +59,10 @@ require("includes/header.php");
                         <td>' . $counter . '</td>
                         <td>' . $row['PGW_NM'] . '</td>
                         <td value="' . $row['STA_ID'] . '">' . $row['STA_ID'] . '</td>
-                        <td>' . $row['UPD_TMS'] . '</td>
                         <td>' . $row['PGW_WKT_KELUAR'] . '</td>
                         <td>' . $row['PGW_WKT_MASUK'] . '</td>
                         <td>' . $row['URSN_DESC'] . '</td>
+                        <td>' . $row['RPT_DESC'] . '</td>
                       </tr>' ;
                         $counter++;
                     }
@@ -77,10 +78,11 @@ require("includes/header.php");
 
                 echo '<h2>Paparan Semua Unit</h2>';
 
-                $query = "SELECT *, DATE_FORMAT(UPD_TMS, '%d-%m-%Y') as UPD_TMS, SUBSTRING(CRT_TMS,6,2) as month FROM OMSLAPORAN WHERE SUBSTRING(CRT_TMS,6,2) = SUBSTRING(NOW(),6,2) ORDER BY CRT_TMS DESC";
+                $query = "SELECT * FROM OMSLAPORAN where SUBSTRING(CRT_TMS,9,2) = SUBSTRING(NOW(),9,2) ORDER BY CRT_TMS";
                 $result = mysql_query ($query); //Run the query
                 $num = mysql_num_rows($result);
                 $counter = 1;
+
                 if ($num > 0) { // If it ran OK, display the records.
                     // Table header.
                     echo '<table class="table table-bordered table-hover table-striped">
@@ -89,9 +91,9 @@ require("includes/header.php");
                     <th>No.</th>
                     <th>Nama Pegawai</th>
                     <th>Status</th>
-                    <th>Tarikh</th>
                     <th>Masa Keluar</th>
                     <th>Masa Masuk</th>
+                    <th>Pergerakan</th>
                     <th>Catatan Pergerakan</th>
                 </tr></thead>' ;
                     //Fetch and print all the records.
@@ -100,10 +102,10 @@ require("includes/header.php");
                         <td>' . $counter . '</td>
                         <td>' . $row['PGW_NM'] . '</td>
                         <td value="' . $row['STA_ID'] . '">' . $row['STA_ID'] . '</td>
-                        <td>' . $row['UPD_TMS'] . '</td>
                         <td>' . $row['PGW_WKT_KELUAR'] . '</td>
                         <td>' . $row['PGW_WKT_MASUK'] . '</td>
                         <td>' . $row['URSN_DESC'] . '</td>
+                        <td>' . $row['RPT_DESC'] . '</td>
                       </tr>' ;
                         $counter++;
                     }

@@ -28,11 +28,11 @@
           <div class="col-md-offset-3">
             <form class="form-horizontal" action="adminAddStatusKeberadaan.php" method="post" role="form">
               <div class="form-group">
-                <div class="col-sm-4">
-                  <font color="#FF0000"><small>* </small></font><label for="inputPassword3" class="control-label">Huraian Status Keberadaan</label>
+                <div class="col-sm-3">
+                  <font color="#FF0000"><small>* </small></font><label for="inputPassword3" class="control-label">Huraian Status Pergerakan</label>
                 </div>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" placeholder="Status Keberadaan Description" name="ursndesc" value="<?php if (isset ($_POST ['ursndesc'])) echo $_POST ['ursndesc']; ?>">
+                  <input type="text" class="form-control" placeholder="Status Pergerakan dan Keberadaan" name="ursndesc" value="<?php if (isset ($_POST ['ursndesc'])) echo $_POST ['ursndesc']; ?>">
                   <input type="hidden" name="statusid" value="<?php echo '' . $total . ''; ?>">
                 </div>
               </div>

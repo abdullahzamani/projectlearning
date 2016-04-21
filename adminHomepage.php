@@ -5,7 +5,7 @@ require("includes/header.php");
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-success">OFFICER MOVEMENT MANAGEMENT SYSTEM</h1>
+                <h1 class="text-success">SISTEM PERGERAKAN DAN KEBERADAAN PEGAWAI DI PEJABAT</h1>
             </div>
         </div>
     </div>
@@ -43,7 +43,7 @@ require("includes/header.php");
                         <span class="fa form-control-feedback fa-edit"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <label class="control-label">Status Keberadaan dan Pergerakan Pegawai</label>
+                        <label class="control-label">Status Pergerakan dan Keberadaan Pegawai</label>
                         <?php
                         $myQuery = "select URSN_ID, URSN_DESC from omsurusan order by URSN_ID";
                         $rs = mysql_query($myQuery) or die ("Dude you've got this wrong: " . mysql_error());
@@ -94,18 +94,23 @@ require("includes/header.php");
             </div>
             <div class="col-md-4 text-right">
                 <br>
+                <a href="adminPaparan.php">
+                    <button class="btn btn-primary" style="width:250px; height:50px">PAPARAN LAPORAN HARIAN</button>
+                </a>
+                <br>
+                <br>
                 <a href="adminReportDaily.php">
-                    <button class="active btn" style="width:250px; height:50px">LAPORAN HARIAN</button>
+                    <button class="active btn btn-default" style="width:250px; height:50px">LAPORAN HARIAN</button>
                 </a>
                 <br>
                 <br>
                 <a href="adminReportMonthly.php">
-                    <button class="active btn" style="width:250px; height:50px">LAPORAN BULANAN</button>
+                    <button class="active btn btn-default" style="width:250px; height:50px">LAPORAN BULANAN</button>
                 </a>
                 <br>
                 <br>
                 <a href="adminReportYearly.php">
-                    <button class="active btn" style="width:250px; height:50px">LAPORAN TAHUNAN</button>
+                    <button class="active btn btn-default" style="width:250px; height:50px">LAPORAN TAHUNAN</button>
                 </a>
             </div>
         </div>

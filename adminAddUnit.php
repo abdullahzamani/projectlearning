@@ -44,7 +44,7 @@
                   <font color="#FF0000"><small>* </small></font><label for="inputEmail3" class="control-label">Bahagian/Unit ID</label>
                 </div>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" name="unitid" placeholder="Unit ID" value="<?php if (isset ($_POST ['unitid'])) echo $_POST ['unitid']; ?>">
+                  <input type="text" class="form-control" name="unitid" placeholder="Bahagian/Unit ID" value="<?php if (isset ($_POST ['unitid'])) echo $_POST ['unitid']; ?>">
                 </div>
               </div>
               <div class="form-group">
@@ -52,7 +52,7 @@
                   <font color="#FF0000"><small>* </small></font><label for="inputPassword3" class="control-label">Huraian Bahagian/Unit</label>
                 </div>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" placeholder="Unit Description" name="unitdesc" value="<?php if (isset ($_POST ['unitdesc'])) echo $_POST ['unitdesc']; ?>">
+                  <input type="text" class="form-control" placeholder="Huraian Bahagian/Unit" name="unitdesc" value="<?php if (isset ($_POST ['unitdesc'])) echo $_POST ['unitdesc']; ?>">
                 </div>
               </div>
               <div class="form-group">

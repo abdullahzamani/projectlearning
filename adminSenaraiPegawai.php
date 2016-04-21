@@ -5,7 +5,7 @@ require("includes/header.php");
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-success">OFFICER MOVEMENT MANAGEMENT SYSTEM</h1>
+                <h1 class="text-success">SISTEM PERGERAKAN DAN KEBERADAAN PEGAWAI DI PEJABAT</h1>
                 <h2>SENARAI PEGAWAI</h2>
             </div>
         </div>
@@ -35,7 +35,7 @@ require("includes/header.php");
                 $row1 = mysql_fetch_array ($result1, MYSQL_ASSOC);
                 echo '<h2>' . $row1['UNIT_ID'] . ' : ' . $row1['UNIT_DESC'] . '</h2>';
 
-                $query = "SELECT * FROM OMSPEGAWAI where PGW_ID <> 'admin' and UNIT='$unit' ORDER BY PGW_NM";
+                $query = "SELECT * FROM OMSPEGAWAI where PGW_ID <> 'admin' and UNIT='$unit' ORDER BY FIELD(PGW_JWTN, 'J54', 'J52', 'J48', 'J41', 'JA38', 'JA36', 'JA29', 'N17')";
                 $result = mysql_query ($query); //Run the query
                 $num = mysql_num_rows($result);
                 $counter = 1;
@@ -103,7 +103,7 @@ require("includes/header.php");
             } else {
 
                 echo '<h2> Paparan Semua Pegawai</h2>';
-                $query = "SELECT * FROM OMSPEGAWAI where PGW_ID <> 'admin' ORDER BY PGW_NM";
+                $query = "SELECT * FROM OMSPEGAWAI where PGW_ID <> 'admin' ORDER BY FIELD(PGW_JWTN, 'J54', 'J52', 'J48', 'J41', 'JA38', 'JA36', 'JA29', 'N17')";
                 $result = mysql_query ($query); //Run the query
                 $num = mysql_num_rows($result);
                 $counter = 1;

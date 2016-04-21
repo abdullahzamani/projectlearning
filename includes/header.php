@@ -46,7 +46,7 @@ $sespgwid = $_SESSION['SESS_USERID'];
                             <a href="adminSenaraiPegawai.php">Senarai Pegawai</a>
                         </li>
                         <li>
-                            <a href="adminStatusKeberadaan.php">Status Keberadaan</a>
+                            <a href="adminStatusKeberadaan.php">Status Pergerakan</a>
                         </li>
                         <li>
                             <a href="adminUnit.php">Bahagian/Unit</a>

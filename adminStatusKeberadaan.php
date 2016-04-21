@@ -5,7 +5,7 @@ require("includes/header.php");
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-success">OFFICER MOVEMENT MANAGEMENT SYSTEM</h1>
+                <h1 class="text-success">SISTEM PERGERAKAN DAN KEBERADAAN PEGAWAI DI PEJABAT</h1>
             </div>
         </div>
     </div>
@@ -14,7 +14,7 @@ require("includes/header.php");
     <div class="container">
         <div class="row">
 
-            <a href="adminAddStatusKeberadaan.php" class="btn btn-primary">Tambah Status Keberadaan</a>
+            <a href="adminAddStatusKeberadaan.php" class="btn btn-primary">Tambah Status Pergerakan dan Keberadaan</a>
 
             <br><br>
 
@@ -29,7 +29,7 @@ require("includes/header.php");
                 echo '<table class="table table-bordered">
                     <tr><thead>
                     <th class="col-md-1">No.</th>
-                    <th>Status Keberadaan</th>
+                    <th>Status Pergerakan dan Keberadaan</th>
                     <th class="col-md-1">Edit</th>
                     <th class="col-md-1">Delete</th></thead>
                 </tr>' ;

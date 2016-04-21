@@ -25,10 +25,10 @@
           $pgwjwtn = $_POST['pgwjwtn'];
           $pgwunit = $_POST['pgwunit'];
           $pgwhp = $_POST['pgwhp'];
-          $pgwhp = $_POST['pgwemel'];
+          $pgwemel = $_POST['pgwemel'];
           $sessid = $_SESSION['SESS_USERID'];
 
-          $query = "INSERT INTO OMSPEGAWAI (PGW_ID,PGW_NM,PGW_NRIC,PGW_JWTN,UNIT,PGW_HP,PGW_EMEL,CRT_TMS,UPD_TMS,CRT_UID,UPD_UID) VALUES ('$pgwid','$pgwnm','$nric','$pgwjwtn','$pgwunit','$pgwhp','$pgwhp',NOW(),NOW(),'$sessid','$sessid')";
+          $query = "INSERT INTO OMSPEGAWAI (PGW_ID,PGW_NM,PGW_NRIC,PGW_JWTN,UNIT,PGW_HP,PGW_EMEL,PGW_TYP,CRT_TMS,UPD_TMS,CRT_UID,UPD_UID) VALUES ('$pgwid','$pgwnm','$nric','$pgwjwtn','$pgwunit','$pgwhp','$pgwemel',2,NOW(),NOW(),'$sessid','$sessid')";
           $result = @mysql_query ($query);
           if ($result) { //If it ran OK.
             echo "<script>";
@@ -81,7 +81,20 @@
                   <font color="#FF0000"><small>* </small></font><label for="inputPassword3" class="control-label">Bahagian/Unit</label>
                 </div>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" placeholder="Pegawai Bahagian/Unit" name="pgwunit" value="<?php if (isset ($_POST ['pgwunit'])) echo $_POST ['pgwunit']; ?>">
+                  <!-- <input type="text" class="form-control" placeholder="Pegawai Bahagian/Unit" name="pgwunit" value="<?php if (isset ($_POST ['pgwunit'])) echo $_POST ['pgwunit']; ?>"> -->
+                    <?php
+                        $myQuery = "select UNIT_ID, UNIT_DESC from omsunit order by UNIT_ID";
+                        $rs = mysql_query($myQuery) or die ("Dude you've got this wrong: " . mysql_error());
+                        ?>
+                        <select class="form-control" name="pgwunit" id="pgwunit">
+                            <?php
+                            echo "<option>Select Status</option>";
+                            while ($row = mysql_fetch_array($rs))
+                            {
+                                echo "<option value='" . $row['UNIT_ID'] . "'> " . $row['UNIT_DESC'] . "</option>";
+                            }
+                            ?>
+                        </select>
                 </div>
               </div>
               <div class="form-group">

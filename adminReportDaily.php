@@ -1,11 +1,12 @@
 <?php
 require("includes/header.php");
+//header( "refresh:5;url=adminReportDaily.php?pgw_unit=BPKSP" );
 ?>
 <div class="section">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-success">OFFICER MOVEMENT MANAGEMENT SYSTEM</h1>
+                <h1 class="text-success">SISTEM PERGERAKAN DAN KEBERADAAN PEGAWAI DI PEJABAT</h1>
                 <h2>LAPORAN HARIAN</h2>
             </div>
         </div>
