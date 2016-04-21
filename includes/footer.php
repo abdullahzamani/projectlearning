@@ -8,7 +8,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand"><span><small><small><small>Copyright 2016 @ AZ</small></small></small></span></a>
+                        <a class="navbar-brand"><span><small><small><small>Copyright 2016 @ tali</small></small></small></span></a>
                     </div>
                 </div>
             </div>

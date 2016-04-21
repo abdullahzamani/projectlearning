@@ -50,45 +50,45 @@
   exit();
  }
 
- if ($userid == 'admin' && $password == 'admin') {
-  $query="SELECT * FROM omspegawai WHERE PGW_ID='$userid' AND PGW_PASS='$password'";
-  $result=mysql_query($query);
-
- //Check whether the query was successful or not
- if($result) {
-  if(mysql_num_rows($result) > 0) {
-   //Login Successful
-   $adminlogin = mysql_fetch_assoc($result);
-   session_start("SESS_LOGGEDIN");
-   session_start("SESS_USERNAME");
-   session_start("SESS_USERID");
-   $_SESSION['SESS_LOGGEDIN'] = 1;
-   $_SESSION['SESS_USERNAME'] = $adminlogin['PGW_NM'];
-   $_SESSION['SESS_USERID'] = $adminlogin['PGW_ID'];
-
-   header("location: adminHomepage.php");
-   exit();
-  }
-
-  else {
-   //Login failed
-   $errmsg_arr[] = '<font color="#FF0000">User ID and Password not found</font>';
-   $errflag = true;
-   if($errflag) {
-    $_SESSION['ERRMSG_ARR'] = $errmsg_arr;
-    session_write_close();
-  header("location: index.php");
-    exit();
-   }
-  }
- }else {
-  die("Query failed");
- }
- }
+ //if ($userid == 'admin' && $password == 'admin') {
+  //$query="SELECT * FROM omspegawai WHERE PGW_ID='$userid' AND PGW_PASS='$password'";
+  //$result=mysql_query($query);
+//
+ ////Check whether the query was successful or not
+ //if($result) {
+  //if(mysql_num_rows($result) > 0) {
+   ////Login Successful
+   //$adminlogin = mysql_fetch_assoc($result);
+   //session_start("SESS_LOGGEDIN");
+   //session_start("SESS_USERNAME");
+   //session_start("SESS_USERID");
+   //$_SESSION['SESS_LOGGEDIN'] = 1;
+   //$_SESSION['SESS_USERNAME'] = $adminlogin['PGW_NM'];
+   //$_SESSION['SESS_USERID'] = $adminlogin['PGW_ID'];
+//
+   //header("location: adminHomepage.php");
+   //exit();
+  //}
+//
+  //else {
+   ////Login failed
+   //$errmsg_arr[] = '<font color="#FF0000">User ID and Password not found</font>';
+   //$errflag = true;
+   //if($errflag) {
+    //$_SESSION['ERRMSG_ARR'] = $errmsg_arr;
+    //session_write_close();
+  //header("location: index.php");
+    //exit();
+   //}
+  //}
+ //}else {
+  //die("Query failed");
+ //}
+ //}
 
  //Create query
  $shapass = sha1($password);
- $query="SELECT * FROM omspegawai WHERE PGW_ID='$userid' AND PGW_PASS='$password'";
+ $query="SELECT * FROM omspegawai WHERE PGW_ID='$userid' AND PGW_PASS='$password' AND PGW_TYP='1'";
  $result=mysql_query($query);
 
  //Check whether the query was successful or not
@@ -103,7 +103,7 @@
    $_SESSION['SESS_USERNAME'] = $loginrow['PGW_NM'];
    $_SESSION['SESS_USERID'] = $loginrow['PGW_ID'];
 
-    header("location: penggunaAmHomepage.php");
+    header("location: adminHomepage.php");
   }
 
   else {

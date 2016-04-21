@@ -6,6 +6,7 @@ require("includes/header.php");
         <div class="row">
             <div class="col-md-12">
                 <h1 class="text-success">OFFICER MOVEMENT MANAGEMENT SYSTEM</h1>
+                <h2>SENARAI PEGAWAI</h2>
             </div>
         </div>
     </div>
@@ -13,8 +14,12 @@ require("includes/header.php");
 <div class="section">
     <div class="container">
         <div class="row">
+            <a href="adminAddPegawai.php" class="btn btn-primary hide-from-printer">Tambah Pegawai</a>
+            <br><br>
             <button onclick="myFunction()" class="btn hide-from-printer">Print</button>
-            |
+            <label class="hide-from-printer">|</label>
+            <a href="adminSenaraiPegawai.php" class="hide-from-printer"><button class="btn btn-success hide-from-printer">Papar Semua Unit</button></a>
+            <label class="hide-from-printer">|</label>
             <?php include("includes/unitList.php"); ?>
             <br>
             <br>
@@ -24,8 +29,13 @@ require("includes/header.php");
             if(isset($_GET['pgw_unit']))
             {
                 $unit = $_GET['pgw_unit'];
-                //Make the query.
-                $query = "SELECT * FROM OMSPEGAWAI where PGW_ID <> 'admin' and UNIT='$unit' ORDER BY PGW_ID";
+
+                $query1 = "SELECT * FROM OMSUNIT where UNIT_ID='$unit'";
+                $result1 = mysql_query ($query1); //Run the query
+                $row1 = mysql_fetch_array ($result1, MYSQL_ASSOC);
+                echo '<h2>' . $row1['UNIT_ID'] . ' : ' . $row1['UNIT_DESC'] . '</h2>';
+
+                $query = "SELECT * FROM OMSPEGAWAI where PGW_ID <> 'admin' and UNIT='$unit' ORDER BY PGW_NM";
                 $result = mysql_query ($query); //Run the query
                 $num = mysql_num_rows($result);
                 $counter = 1;
@@ -40,8 +50,10 @@ require("includes/header.php");
                     <th>Kad Pengenalan</th>
                     <th>Jawatan</th>
                     <th>Unit</th>
-                    <th>H/P</th>
+                    <th>No. Tel.</th>
                     <th>Email</th>
+                    <th class="hide-from-printer">Edit</th>
+                    <th class="hide-from-printer">Delete</th>
                 </tr></thead>'
                         ;
                     //Fetch and print all the records.
@@ -54,7 +66,30 @@ require("includes/header.php");
                         <td>' . $row['UNIT'] . '</td>
                         <td>' . $row['PGW_HP'] . '</td>
                         <td>' . $row['PGW_EMEL'] . '</td>
+                   <td class="hide-from-printer"><a href="adminUpdatePegawai.php?pgwid=' . $row['PGW_ID'] . '" class="btn btn-default btn-block">Edit</a></td>
+                   <td class="hide-from-printer"><button class="btn btn-danger btn-block"
+                               type="button"
+                               data-toggle="modal"
+                               data-target="#confirmDelete' . $row['PGW_ID'] . '">Delete</button></td>
                       </tr>' ;
+            echo '<!-- Modal Dialog -->
+                   <div class="modal fade" id="confirmDelete' . $row['PGW_ID'] . '" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                     <div class="modal-content">
+                      <div class="modal-header">
+                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                       <h4 class="modal-title">Buang Pegawai</h4>
+                      </div>
+                      <div class="modal-body">
+                       <p>Buang Pegawai: <font color="#FF0000">' . $row['PGW_NM'] . '</font> ?</p>
+                      </div>
+                      <div class="modal-footer">
+                       <a href="adminDelete.php?pgwid=' . $row['PGW_ID'] . '"><button type="button" class="btn btn-danger" id="confirm">Delete</button></a>
+                       <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      </div>
+                     </div>
+                    </div>
+                   </div>';
                         $counter++;
                     }
                     echo '</table>';
@@ -67,7 +102,8 @@ require("includes/header.php");
 
             } else {
 
-                $query = "SELECT * FROM OMSPEGAWAI where PGW_ID <> 'admin' ORDER BY PGW_ID";
+                echo '<h2> Paparan Semua Pegawai</h2>';
+                $query = "SELECT * FROM OMSPEGAWAI where PGW_ID <> 'admin' ORDER BY PGW_NM";
                 $result = mysql_query ($query); //Run the query
                 $num = mysql_num_rows($result);
                 $counter = 1;
@@ -82,8 +118,10 @@ require("includes/header.php");
                     <th>Kad Pengenalan</th>
                     <th>Jawatan</th>
                     <th>Unit</th>
-                    <th>H/P</th>
+                    <th>No. Tel.</th>
                     <th>Email</th>
+                    <th class="hide-from-printer">Edit</th>
+                    <th class="hide-from-printer">Delete</th>
                 </tr></thead>' ;
                     //Fetch and print all the records.
                     while ($row = mysql_fetch_array ($result, MYSQL_ASSOC) ) {
@@ -95,7 +133,30 @@ require("includes/header.php");
                         <td>' . $row['UNIT'] . '</td>
                         <td>' . $row['PGW_HP'] . '</td>
                         <td>' . $row['PGW_EMEL'] . '</td>
+                   <td class="hide-from-printer"><a href="adminUpdatePegawai.php?pgwid=' . $row['PGW_ID'] . '" class="btn btn-default btn-block">Edit</a></td>
+                   <td class="hide-from-printer"><button class="btn btn-danger btn-block"
+                               type="button"
+                               data-toggle="modal"
+                               data-target="#confirmDelete' . $row['PGW_ID'] . '">Delete</button></td>
                       </tr>' ;
+            echo '<!-- Modal Dialog -->
+                   <div class="modal fade" id="confirmDelete' . $row['PGW_ID'] . '" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                     <div class="modal-content">
+                      <div class="modal-header">
+                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                       <h4 class="modal-title">Buang Pegawai</h4>
+                      </div>
+                      <div class="modal-body">
+                       <p>Buang Pegawai: <font color="#FF0000">' . $row['PGW_NM'] . '</font> ?</p>
+                      </div>
+                      <div class="modal-footer">
+                       <a href="adminDelete.php?pgwid=' . $row['PGW_ID'] . '"><button type="button" class="btn btn-danger" id="confirm">Delete</button></a>
+                       <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      </div>
+                     </div>
+                    </div>
+                   </div>';
                         $counter++;
                     }
                     echo '</table>';

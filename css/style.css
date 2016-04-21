@@ -6787,3 +6787,12 @@ body {
 
 .borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th
 { border: none; }
+
+td[value="N"] {
+    color: red;
+    background-color: red;
+}
+td[value="Y"] {
+    color: green;
+    background-color: green;
+}

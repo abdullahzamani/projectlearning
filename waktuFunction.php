@@ -60,7 +60,7 @@
  $pgwwktmasuk = clean($_POST['pgw_wkt_masuk']);
  $sessid = $_SESSION['SESS_USERID'];
 
-     $query = "SELECT * FROM OMSLAPORAN WHERE PGW_NRIC='$nric' and PGW_NM='$nm'";
+     $query = "SELECT * FROM OMSLAPORAN WHERE PGW_NRIC='$nric' and PGW_NM='$nm' and SUBSTRING(CRT_TMS,9,2) = SUBSTRING(NOW(),9,2)";
      $result = mysql_query($query);
 
    if (mysql_num_rows($result) > 0) {

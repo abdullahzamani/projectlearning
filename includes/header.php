@@ -39,7 +39,7 @@ $sespgwid = $_SESSION['SESS_USERID'];
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-ex-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active">
+                        <li>
                             <a href="adminHomepage.php">Home</a>
                         </li>
                         <li>
@@ -55,11 +55,6 @@ $sespgwid = $_SESSION['SESS_USERID'];
                             <a href="Logout.php">Log out</a>
                         </li>
                     </ul>
-                    <p class="navbar-left navbar-text">Signed in as
-                        <a href="#" class="navbar-link">
-                            <?php echo"$sesusername"?>
-                        </a>
-                    </p>
                 </div>
             </div>
         </div>

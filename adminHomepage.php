@@ -18,7 +18,7 @@ require("includes/header.php");
                     <div class="form-group has-feedback">
                         <label class="control-label">Nama Pengguna</label>
                         <?php
-                        $myQuery = "select PGW_NM as NM, PGW_NM, PGW_NRIC as IC, PGW_NRIC, UNIT from omspegawai order by PGW_ID";
+                        $myQuery = "select PGW_NM as NM, PGW_NM, PGW_NRIC as IC, PGW_NRIC, UNIT from OMSPEGAWAI where PGW_JWTN <> 'admin' order by PGW_NM";
                         $rs = mysql_query($myQuery) or die ("Dude you've got this wrong: " . mysql_error());
                         ?>
                         <select class="form-control" name="pgw_nm" id="pgw_nm">
@@ -99,12 +99,12 @@ require("includes/header.php");
                 </a>
                 <br>
                 <br>
-                <a href="adminReportWeekly.html">
+                <a href="adminReportMonthly.php">
                     <button class="active btn" style="width:250px; height:50px">LAPORAN BULANAN</button>
                 </a>
                 <br>
                 <br>
-                <a href="adminReportWeekly.html">
+                <a href="adminReportYearly.php">
                     <button class="active btn" style="width:250px; height:50px">LAPORAN TAHUNAN</button>
                 </a>
             </div>

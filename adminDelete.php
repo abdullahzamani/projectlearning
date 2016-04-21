@@ -23,5 +23,12 @@ if(isset($_GET['unitid']))
   if($queryursn) {
     header('location:adminStatusKeberadaan.php');
   }
+} else if(isset($_GET['pgwid']))
+{
+  $pgwid = $_GET['pgwid'];
+  $queryursn = mysql_query("DELETE FROM OMSPEGAWAI WHERE PGW_ID='$pgwid'");
+  if($queryursn) {
+    header('location:adminSenaraiPegawai.php');
+  }
 }
 ?>
